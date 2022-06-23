@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates</title>
+    <style>
+        /* body{
+             overflow: hidden;  
+        } */
+        .rec{
+           
+            background-color: green;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            font-size: 30px;
+            text-align: center;
+            
+           
+        }
+
+        .rec .sids{
+            background-color: yellow;
+           
+            width: 100px;
+            height: 100px;
+        }
+        .show{
+            position: fixed;
+            top: 100px;
+            right:500px;
+            font-size: 20px;
+        }
+
+      .rec.num1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* height: 200px; */
+        color: red;
+        /* vertical-align: middle; */
+      }
+       
+    </style>
+    
+</head>
+<body>
+<div class="rec num1"><div class="hynix">num1<br>fsdaf</div></div>
+<div class="rec num2">num2
+    <div class="sids">
+
+    </div>
+</div>
+<div class="rec num3">num3</div>
+<div class="rec num4">num4</div>
+<div class="rec num5">num5</div>
+<div class="rec num6">num6</div>
+<div class="rec num7">num7</div>
+<div class="rec num8">num8</div>
+<div class="rec num9">num9</div>
+<div class="rec num10">num10</div>
+<div class="show">
+    show
+</div>
+
+<script>
+    const show = document.querySelector('.show');
+    const rectangles = document.querySelectorAll('.rec');   
+    rectangles.forEach((rect)=>{
+        rect.addEventListener('click', (event)=>{
+          const ele = rect.getBoundingClientRect();          
+           
+          show.innerHTML =   showCoordinates(ele);
+          console.log(event.x, event.y, event.pageX, event.pageY)
+        //   event.x => x좌표
+        //   event.pageX => x좌표
+        //   enent.y => 브라우저를 기준으로 y값
+        //   evnet.pageY => 문서를 기준으로 y값, 문서가 위로 스크롤 되었다면 y값은 event.y 보다 크다
+
+        })
+    })
+
+    function showCoordinates(coor){
+     
+        return `
+            x : ${coor.x}  <br/>
+            Y : ${coor.y} <br/>
+            width : ${coor.width} <br/>
+            height : ${coor.height} <br/>
+            top : ${coor.top} <br/>
+            right : ${coor.right} <br/>
+            bottom : ${coor.bottom} <br/>
+            left : ${coor.left}
+        `
+    }
+</script>
+    
+</body>
+</html>

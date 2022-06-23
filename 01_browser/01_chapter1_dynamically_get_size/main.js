@@ -13,4 +13,4 @@ function showTag(){
     `;
 }
 
-showTag()
+showTag();
