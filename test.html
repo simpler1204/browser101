@@ -6,27 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            background-color: black;
+        .outer{
+            width: 800px;
+            height: 800px;
+            background-color: yellow;
         }
-        .container{
-            display: flex;
-            justify-content: space-between;
+        .middle{
+            width: 50%;
+            height: 50%;
+            background-color: pink;
+            margin: auto;
+            transform: translateY(50%);
         }
-        .name,.age,.address,.friend{
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-        }
+     
+        button {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="name"></div>
-        <div class="age"></div>
-        <div class="address"></div>
-        <div class="friend"></div>
+    <div class="outer">
+        <div class="middle">
+            <button>Click me</button>
+        </div>
     </div>
-   
+
+    <script>
+        const outer = document.querySelector('.outer');
+        const middle = document.querySelector('.middle');
+        const button = document.querySelector('button');
+
+        outer.addEventListener('click', event =>{
+            console.log(`outer: ${event.currentTarget}, ${event.target}`);
+        });
+        middle.addEventListener('click', ()=>{
+            console.log(`middle: ${event.currentTarget}, ${event.target}`);
+        });
+        button.addEventListener('click', ()=>{
+            console.log(`button: ${event.currentTarget}, ${event.target}`);
+        });
+    </script>
 </body>
 </html>

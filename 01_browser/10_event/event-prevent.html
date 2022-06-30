@@ -29,13 +29,13 @@
     <script>
       document.addEventListener('wheel', event => {
         console.log('scrolling');
-        event.preventDefault();
+        event.preventDefault(); //scrolling 같은 동작에서는 작동을 안함. 옵션에 {passive:false}해주면 작동함
       });
       const checkbox = document.querySelector('input');
       checkbox.addEventListener('click', event => {
         // long
         console.log('checked');
-        event.preventDefault();
+        event.preventDefault();  //체크박스를 눌러고 체크되지 않음.  기본적인 동작을 막음.
       });
     </script>
   </body>
