@@ -1,0 +1,92 @@
+body{
+    box-sizing:border-box;
+    background-color: rgb(43, 37, 37);
+    display: flex;
+    justify-content: center;
+}
+
+div.panel{
+    background-image: url("img/background.png");
+    background-size : cover;
+    width: 1200px;
+    height: 800px;
+    margin-top : 10px;
+    
+}
+
+section.timer{   
+   text-align: center;
+   margin-top: 80px;
+
+}
+
+span.timerText{
+    display: inline-block;
+    background-color: white;
+    font-size: 30px;
+    width: 150px;
+    border: 4px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+section.remain{
+
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.remainCircle{
+    background-color: red;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;     
+    border: 3px solid black;
+}
+
+span.remainText{
+    color: white;
+    position: relative;
+    top: 7px;
+    right:1px; 
+}
+
+.finished{   
+    text-align: center;  
+    /* margin-top: 400px;   */
+}
+
+.finishedBox{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    display: flex;
+    margin: auto;
+    background-color: black;
+    opacity: 70%;
+    border-radius: 10px;
+    margin-top: 400px;
+    left: 41%;
+
+}
+
+i{
+    opacity: 100%;
+    color: black;
+    margin-top : 10px;
+    font-size: 30px;
+    background-color: lightgray;
+    border: 3px solid black;
+    border-radius: 10px;    
+}
+
+.finishedText{
+    color: white;
+    margin: 10px 0px;
+    font-size: 30px;
+}

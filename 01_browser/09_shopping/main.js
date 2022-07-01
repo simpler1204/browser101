@@ -2,6 +2,7 @@
 
 const items = document.querySelector('.items');
 const input = document.querySelector('.footer__input')
+const newForm = document.querySelector('.new-form');
 const addBtn = document.querySelector('.footer__button');
 
 function onAdd() {
@@ -26,32 +27,50 @@ function onAdd() {
     input.focus();
 }
 
+newForm.addEventListener('submit', event=>{
+    event.preventDefault(); //submit 이벤트는 자동으로 페이지를 이동하기 때문에 막는다
+    onAdd();
+})
+
+let id = 0;
 function createItem(text){
     const itemRow = document.createElement('li');
     itemRow.setAttribute('class', 'item__row');
+    itemRow.setAttribute('data-id', id);
+    itemRow.innerHTML = `
+        <div class="item">
+            <span class="item__name">${text}</span>
+            <button class="item__delete">
+                <i class="fa-solid fa-trash-can" data-id = ${id}></i>
+            </button>
+        </div>
+        <div class="item__divider"></div>
+    `;
+    id++;    
 
-    const item = document.createElement('div');
-    item.setAttribute('class', 'item');
 
-    const name = document.createElement('span');
-    name.setAttribute('class', 'item__name');
-    name.innerHTML = text;
+    // const item = document.createElement('div');
+    // item.setAttribute('class', 'item');
 
-    const button = document.createElement('button');
-    button.setAttribute('class', 'item__delete');
-    button.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
-    button.addEventListener('click', ()=>{
-        items.removeChild(itemRow);
-    })
+    // const name = document.createElement('span');
+    // name.setAttribute('class', 'item__name');
+    // name.innerHTML = text;
 
-    const itemDivider = document.createElement('div');
-    itemDivider.setAttribute('class', 'item__divider');
+    // const button = document.createElement('button');
+    // button.setAttribute('class', 'item__delete');
+    // button.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
+    // button.addEventListener('click', ()=>{
+    // items.removeChild(itemRow);
+    // })
 
-    item.appendChild(name);
-    item.appendChild(button);
+    // const itemDivider = document.createElement('div');
+    // itemDivider.setAttribute('class', 'item__divider');
 
-    itemRow.appendChild(item);
-    itemRow.appendChild(itemDivider);
+    // item.appendChild(name);
+    // item.appendChild(button);
+
+    // itemRow.appendChild(item);
+    // itemRow.appendChild(itemDivider);
 
     return itemRow;
 
@@ -62,8 +81,16 @@ addBtn.addEventListener('click', ()=>{
     onAdd();
 })
 
-input.addEventListener('keypress', event=>{
+input.addEventListener('keydown', event=>{
     if(event.key === 'Enter'){
         onAdd();
     }
 })
+
+items.addEventListener('click', event=>{
+    const dataId = event.target.dataset.id;
+    if(dataId){
+        const toBeDeleted = document.querySelector(`.item__row[data-id='${dataId}'`);
+        toBeDeleted.remove();
+    }
+});
