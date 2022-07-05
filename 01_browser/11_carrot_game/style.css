@@ -1,92 +1,105 @@
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 body{
-    box-sizing:border-box;
-    background-color: rgb(43, 37, 37);
+    text-align: center;
+}
+.game{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 800px;
+    height: 500px;
+    background-image: url(img/background.png);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    border-radius: 20px;
 }
 
-div.panel{
-    background-image: url("img/background.png");
-    background-size : cover;
-    width: 1200px;
-    height: 800px;
-    margin-top : 10px;
+.game__button{
+    width: 60px;
+    height: 60px;
+    background-color: wheat;
+    border: 4px solid black;
+    font-size: 24px;
+    transition: transform 300ms ease-in;
+}
+
+.game__button:hover{
+   
+    transform: scale(1.1);
     
 }
 
-section.timer{   
-   text-align: center;
-   margin-top: 80px;
-
-}
-
-span.timerText{
-    display: inline-block;
+.game__timer{
+    width: 100px;
     background-color: white;
-    font-size: 30px;
-    width: 150px;
-    border: 4px solid black;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-section.remain{
-
     text-align: center;
-    margin-top: 20px;
-    font-size: 30px;
-    font-weight: bold;
+    border: 5px solid black;
+    border-radius: 20px;
+    font-size: 32px;
+    margin-top: 8px;
+    visibility: hidden;
 }
 
-.remainCircle{
-    background-color: red;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;     
+.game__score{
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+    font-size: 46px;
+    border-radius: 50%;
     border: 3px solid black;
-}
-
-span.remainText{
+    background-color: darksalmon;    
     color: white;
-    position: relative;
-    top: 7px;
-    right:1px; 
+    visibility: hidden;
+
 }
 
-.finished{   
-    text-align: center;  
-    /* margin-top: 400px;   */
-}
-
-.finishedBox{
-    position: fixed;
+.game__header{
     display: flex;
     flex-direction: column;
+    padding: 20px;
     align-items: center;
-    width: 200px;
-    display: flex;
+}
+
+.game__field{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;  
+}
+
+.pop-up{
+    display: block;
+    width: 400px;
+    height: 140px;
+    padding: 20px;
+    /* opacity: 0.7; 이렇게 주면 pop-up 안의 모든 element가 적용됨. 그래서 컬러에서 적용한는것이 좋음 */
+    background-color: #00000090;
+    border-radius: 20px;
+    color:white;
+    text-align: center;
     margin: auto;
-    background-color: black;
-    opacity: 70%;
-    border-radius: 10px;
-    margin-top: 400px;
-    left: 41%;
-
+    transform: translateY(-150%);
 }
 
-i{
-    opacity: 100%;
-    color: black;
-    margin-top : 10px;
-    font-size: 30px;
-    background-color: lightgray;
-    border: 3px solid black;
-    border-radius: 10px;    
+.pop-up__hide{
+    display: none;
 }
 
-.finishedText{
-    color: white;
-    margin: 10px 0px;
-    font-size: 30px;
+.pop-up__refresh{
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: wheat;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.pop-up__message{
+   display: block; 
+   font-size: 38px;
 }

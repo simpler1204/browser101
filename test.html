@@ -6,48 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .outer{
-            width: 800px;
-            height: 800px;
-            background-color: yellow;
+        body{
+            background-color: black;
         }
-        .middle{
-            width: 50%;
-            height: 50%;
-            background-color: pink;
-            margin: auto;
-            transform: translateY(50%);
+        .square1{
+            width: 500px;
+            height: 500px;
+            background-color: red;
         }
-     
-        button {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+        .square2{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: green;   
+            top: 100px;
+            left: 100px;
+            
+            
+            
+        }
+        .square3{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            left: 0px;
+            top: 0px;
+        }
+
+
+
     </style>
 </head>
 <body>
-    <div class="outer">
-        <div class="middle">
-            <button>Click me</button>
+    <div class="square1">
+        <div class="square2">
+            <div class="square3">
+
+            </div>
         </div>
     </div>
+    
 
-    <script>
-        const outer = document.querySelector('.outer');
-        const middle = document.querySelector('.middle');
-        const button = document.querySelector('button');
-
-        outer.addEventListener('click', event =>{
-            console.log(`outer: ${event.currentTarget}, ${event.target}`);
-        });
-        middle.addEventListener('click', ()=>{
-            console.log(`middle: ${event.currentTarget}, ${event.target}`);
-        });
-        button.addEventListener('click', ()=>{
-            console.log(`button: ${event.currentTarget}, ${event.target}`);
-        });
-    </script>
 </body>
 </html>
