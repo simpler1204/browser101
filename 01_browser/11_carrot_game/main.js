@@ -200,6 +200,4 @@ function addItem(className, count, imgPath){
         
         field.appendChild(item);
     }
-
-    
 }
